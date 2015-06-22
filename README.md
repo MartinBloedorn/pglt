@@ -7,7 +7,7 @@ Probes a PCB surface, and uses bicubic spline interpolation to fit a GCode to th
 
 Millig a PCB with fine traces can be challenging, because small variations in cut depth - caused by an irregular PCB surface relative to the mill's path - can lead to unusable traces. 
 Compensating such irregularites generaly involves probing the PCB's surface at multiple points, and fitting the mill's trajectory to it. Very few CNC firwares properly implement this feature.
-The goal withe **pglt** is to move this fitting functionality to a host computer - generating a 'fitted' GCode from the original PCB toolpath.
+The goal with **pglt** is to move this fitting functionality to a host computer - generating a 'fitted' GCode from the original PCB toolpath.
 
 ## Requirements
 
@@ -22,6 +22,7 @@ The goal withe **pglt** is to move this fitting functionality to a host computer
 ## Usage
 
 Suppose the workflow for a dual-sided board:
+
 1. Drill the holes
 2. Mill the top copper
 3. Flip board around (using e.g. alignment holes)
