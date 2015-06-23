@@ -62,6 +62,9 @@ If desired, use your host to drill the board. Disconnect your host from the mill
     
 The `-p` flag runs **pglt** in probe mode (run `pglt -h` to see all options). It will generate surface probing points along a grid, *avoiding the drills in the excellon file* (this behavior can be supressed with `-id`). Enabling `--plot` displays the generated probing points and the avoided drills. 
 
+![](http://martinvb.com/wp/wp-content/uploads/2015/06/drills.png =100x)
+
+
 After executing the probing, a CSV heightmap will be saved to `path/to/my_heightmap_file.csv`. The GCode can now be fitted to this heightmap. Execute just:
 
     $ pglt -c pglt.conf
