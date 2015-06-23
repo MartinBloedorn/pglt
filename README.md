@@ -1,4 +1,7 @@
 # pglt
+
+*P*CB *G*Code *L*eveling *T*ool.
+
 Leveling tool for PCB milling.
 
 Probes a PCB surface, and uses bicubic spline interpolation to fit a GCode to the surface's irregularites.
@@ -60,16 +63,19 @@ If desired, use your host to drill the board. Disconnect your host from the mill
 
     $ pglt -c pglt.cont -p
     
-The `-p` flag runs **pglt** in probe mode (run `pglt -h` to see all options). It will generate surface probing points along a grid, *avoiding the drills in the excellon file* (this behavior can be supressed with `-id`). Enabling `--plot` displays the generated probing points and the avoided drills. 
+The `-p` flag runs **pglt** in probe mode (run `pglt -h` to see all options). It will generate surface probing points along a grid, *avoiding the drills in the excellon file* (this behavior can be supressed with `-id`). Enabling `--plot` displays the generated probing points and the avoided drills, like shown below: 
 
-![](http://martinvb.com/wp/wp-content/uploads/2015/06/drills.png =100x)
+<center><img src="http://martinvb.com/wp/wp-content/uploads/2015/06/drills.png" width="500px"></center>
 
+The `x`s stand for the probe points, and the `o` represent the drills on the board. The red outline dispays the desired clearance from the holes (in this case, 1mm).
 
 After executing the probing, a CSV heightmap will be saved to `path/to/my_heightmap_file.csv`. The GCode can now be fitted to this heightmap. Execute just:
 
     $ pglt -c pglt.conf
 
-The GCode in `path/to/my_gcode_file.g` will be fitted and saved to `path/to/my_fitted_gcode_file.g`. Running this command with  `--plot` enabled displays the 3D probed heightmap.
+The GCode in `path/to/my_gcode_file.g` will be fitted and saved to `path/to/my_fitted_gcode_file.g`. Running this command with  `--plot` enabled displays the 3D probed heightmap, for example:
+
+<center><img src="http://martinvb.com/wp/wp-content/uploads/2015/06/hmap.png" width="500px"></center>
 
 After flipping the board, it must be probed again. Suppose the board was flipped along an axis parallel to X, at Y=15. In order to compensate for the mirroring of the drills, the probing should be executed as:
 
